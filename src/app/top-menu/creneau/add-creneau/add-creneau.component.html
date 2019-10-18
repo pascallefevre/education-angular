@@ -1,0 +1,24 @@
+<p>add-creneau works!</p>
+
+<p-messages [(value)]="msgs"></p-messages>
+
+<form [formGroup]="formAdd" (ngSubmit)="addCreneau()">
+  <p-dropdown [options]="salles" optionLabel="name" formControlName="room" name="room" placeholder="Selectionner la salle"></p-dropdown><BR><BR>
+  <p-dropdown [options]="profs" optionLabel="lastname" formControlName="prof" name="prof" placeholder="Selectionner le professeur"></p-dropdown><BR><BR>
+  <p-dropdown [options]="matieres" optionLabel="name" formControlName="matiere" name="matiere" placeholder="Selectionner la matiere"></p-dropdown><BR><BR>
+  <p-dropdown [options]="classes" optionLabel="name" formControlName="classe" name="classe" placeholder="Selectionner la classe"></p-dropdown><BR><BR>
+  Date de début du cours :
+  <span class="ui-float-label">
+    <p-calendar formControlName="startdate" name="startdate" showTime="true" hourFormat="24"></p-calendar>
+  </span> <BR><BR>
+  Date de fin du cours :
+  <span class="ui-float-label">
+    <p-calendar formControlName="enddate" name="enddate" showTime="true" hourFormat="24"></p-calendar>
+  </span> <BR><BR>
+
+  <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>
+
+</form>
+
+
+

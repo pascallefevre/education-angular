@@ -1,0 +1,21 @@
+<header><h3>Ajouter une classe </h3></header>
+
+<form [formGroup]="formAdd" (ngSubmit)="addClasse()">
+  <span class="ui-float-label">
+    <input id="name" type="text" size="30" pInputText formControlName="name" name="name" style="width: 300px;"/>
+    <label for="float-input">Nom de la classe</label>
+</span><BR><BR>
+  <span class="ui-float-label">
+    <input id="size" type="number" size="30" pInputText formControlName="size" name="size" style="width: 300px;"/>
+    <label for="size">Nombre d'élèves dans la classe</label>
+</span><BR><BR>
+  <p-dropdown [options]="profCaract | async" (click)="clickProf()" value="selectedPp" optionLabel="lastname" formControlName="pp" placeholder="Sélectionner un professeur principal"></p-dropdown><BR><BR>
+  <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>
+</form>
+
+<table><tr *ngFor="let p of profList">
+  <td>Nom : {{p.firstname}} </td>
+  <td>Prénom : {{p.lastname}} </td>
+  <td>Date de naissance : {{p.birthdate}} </td>
+</tr>
+</table>

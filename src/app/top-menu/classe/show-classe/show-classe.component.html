@@ -1,0 +1,8 @@
+<header><h3>Liste des classes</h3></header>
+
+<tr *ngFor="let c of classeList">
+  <td>Nom de la classe : {{c.name}} </td>
+  <td>Taille de la classe : {{c.size}} </td>
+  <td>Professeur principal : {{c.pp.firstname}} {{c.pp.lastname}} </td>
+</tr>
+

@@ -1,0 +1,14 @@
+<p>add-room works!</p>
+
+<form [formGroup]="formAdd" (ngSubmit)="addRoom()">
+  <span class="ui-float-label">
+    <input id="name" type="text" size="30" pInputText formControlName="name" name="name" style="width: 300px;"/>
+    <label for="name">Nom de la salle</label>
+  </span> <BR><BR>
+  <span class="ui-float-label">
+    <input id="capacity" type="number" size="30" pInputText formControlName="capacity" name="capacity" style="width: 300px;"/>
+    <label for="capacity">Taille de la salle</label>
+  </span> <BR><BR>
+
+  <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>
+</form>

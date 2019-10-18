@@ -1,0 +1,11 @@
+<p>add-matiere works!</p>
+
+<form [formGroup]="formAdd" (ngSubmit)="addMatiere()">
+  <span class="ui-float-label">
+    <input id="name" type="text" size="30" pInputText formControlName="name" name="name" style="width: 300px;"/>
+    <label for="name">Nom de la matière</label>
+  </span>
+  Choix de la couleur : <p-colorPicker formControlName="color" name="color"></p-colorPicker> <BR> <BR>
+
+  <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>
+</form>

@@ -1,0 +1,17 @@
+<p>add-prof works!</p>
+
+<form [formGroup]="formAdd" (ngSubmit)="addProf()">
+  <span class="ui-float-label">
+    <input id="firstname" type="text" size="30" pInputText formControlName="firstname" name="firstname" style="width: 300px;"/>
+    <label for="firstname">Prénom</label>
+  </span> <BR><BR>
+  <span class="ui-float-label">
+    <input id="lastname" type="text" size="30" pInputText formControlName="lastname" name="lastname" style="width: 300px;"/>
+    <label for="lastname">Nom de famille</label>
+  </span> <BR><BR>
+  <span class="ui-float-label">
+    <p-calendar formControlName="birthdate" name="birthdate" [yearNavigator]="true" [monthNavigator]="true" yearRange="1900:2019"></p-calendar>
+  </span> <BR><BR>
+
+  <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>
+</form>
