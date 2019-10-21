@@ -1,1 +1,11 @@
-<p>modify-room works!</p>
+<header><h3>Modifier une salle de classe </h3></header>
+
+<form [formGroup]="formAdd" (ngSubmit)="updateRoom()">
+  <span class="ui-float-label">
+    <input id="name" type="text" size="30" pInputText formControlName="name" name="name" style="width: 300px;" value="{{room.name}}"/>
+  </span> <BR><BR>
+  <span class="ui-float-label">
+    <input id="capacity" type="number" size="30" pInputText formControlName="capacity" name="capacity" style="width: 300px;" value="{{room.capacity}}"/>
+  </span> <BR><BR>
+</form>
+<p-button label="Supprimer" (onClick)="deleteRoom()"></p-button>

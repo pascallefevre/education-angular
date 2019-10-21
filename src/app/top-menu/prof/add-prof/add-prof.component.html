@@ -1,4 +1,4 @@
-<p>add-prof works!</p>
+<header><h3>Ajouter un professeur </h3></header>
 
 <form [formGroup]="formAdd" (ngSubmit)="addProf()">
   <span class="ui-float-label">
@@ -10,7 +10,7 @@
     <label for="lastname">Nom de famille</label>
   </span> <BR><BR>
   <span class="ui-float-label">
-    <p-calendar formControlName="birthdate" name="birthdate" [yearNavigator]="true" [monthNavigator]="true" yearRange="1900:2019"></p-calendar>
+    Date de naissance : <p-calendar formControlName="birthdate" name="birthdate" [yearNavigator]="true" [monthNavigator]="true" yearRange="1900:2019"></p-calendar>
   </span> <BR><BR>
 
   <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>

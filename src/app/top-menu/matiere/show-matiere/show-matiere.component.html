@@ -1,6 +1,18 @@
 <header><h3>Liste des matières</h3></header>
 
+<table class="table" id="table_show">
+  <thead>
+  <tr>
+    <th>Intitulé</th>
+    <th>Couleur</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+  </tr>
+  </thead>
+  <tbody>
 <tr *ngFor="let m of matList">
-  <td>Intitulé : {{m.name}} </td>
-  <td>Couleur : {{m.color}} </td>
+  <td>{{m.name}} </td>
+  <td><div [ngStyle]="{'background-color': m.color}" style="width: 60px; height: 15px;"></div>{{m.color}}</td>
 </tr>
+</tbody>
+</table>

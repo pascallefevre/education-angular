@@ -6,6 +6,10 @@ import {CreneauService} from "../../../services/creneau.service";
 import {Message, MessageService} from 'primeng/api';
 import {MessageModule} from "primeng/message";
 import {MessagesModule} from "primeng/messages";
+import {ClasseService} from "../../../services/classe.service";
+import {ProfService} from "../../../services/prof.service";
+import {MatiereService} from "../../../services/matiere.service";
+import {RoomService} from "../../../services/room.service";
 
 @Component({
   selector: 'app-add-creneau',
@@ -34,7 +38,12 @@ export class AddCreneauComponent implements OnInit {
   msgs: Message[] = [];
 
 
-  // on récupère les classes
+  salles = this.roomService.getAllRooms();
+  profs = this.profService.getAllProfs();
+  matieres = this.matService.getAllMatieres();
+  classes = this.classeService.getAllClasses();
+
+  /*// on récupère les classes
   salles = [
     {name: 'Salle 1', capacity: 12},
     {name: 'Salle 2', capacity: 20}
@@ -54,8 +63,10 @@ export class AddCreneauComponent implements OnInit {
     {name: '2nde B', size: 15},
     {name: '1ere A', size: 18}
   ];
+  */
 
-  constructor(private fb: FormBuilder, private creneauService: CreneauService, private router: Router, private messageService: MessageService) {
+
+  constructor(private fb: FormBuilder, private creneauService: CreneauService, private classeService: ClasseService, private profService : ProfService, private matService : MatiereService, private roomService: RoomService, private router: Router, private messageService: MessageService) {
     this.formAdd = fb.group({
       classe: [this.creneau.classe, Validators.required],
       startdate: [this.creneau.startdate, Validators.required],

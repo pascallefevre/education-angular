@@ -1,8 +1,20 @@
 <header><h3>Liste des classes</h3></header>
 
+<table class="table" id="table_show">
+<thead>
+  <tr>
+    <th>Nom de la classe</th>
+    <th>Taille de la classe</th>
+    <th>Professeur principal</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+  </tr>
+</thead>
+  <tbody>
 <tr *ngFor="let c of classeList">
-  <td>Nom de la classe : {{c.name}} </td>
-  <td>Taille de la classe : {{c.size}} </td>
-  <td>Professeur principal : {{c.pp.firstname}} {{c.pp.lastname}} </td>
+  <td>{{c.name}} </td>
+  <td>{{c.size}} </td>
+  <td>{{c.pp.firstname}} {{c.pp.lastname}} </td>
 </tr>
-
+  </tbody>
+</table>

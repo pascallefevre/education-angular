@@ -8,7 +8,6 @@ import {MatiereService} from "../../../services/matiere.service";
   styleUrls: ['./show-matiere.component.css']
 })
 export class ShowMatiereComponent implements OnInit {
-
   matList: Array<Matiere> = new Array<Matiere>();
 
   constructor(private matService: MatiereService) {

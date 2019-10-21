@@ -37,13 +37,14 @@ import {AddCreneauComponent} from "./top-menu/creneau/add-creneau/add-creneau.co
 import {
   DataGridModule,
   MegaMenuModule,
-  MenuItemContent,
-  MessageModule,
+  MenuItemContent, MessageModule,
+  MessageService,
   MessagesModule,
   TabMenuModule
 } from "primeng/primeng";
 import {LeftMenuComponent} from "./left-menu/left-menu.component";
 import {TopMenuComponent} from "./top-menu/top-menu.component";
+import {TableModule} from "primeng/table";
 
 
 const routes: Routes = [
@@ -117,8 +118,9 @@ const routes: Routes = [
     TabMenuModule,
     QuillModule,
     MegaMenuModule,
+    MessagesModule,
     MessageModule,
-    MessagesModule
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

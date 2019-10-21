@@ -14,6 +14,7 @@ export class ModifyMatiereComponent implements OnInit {
   @Input() matiere = new Matiere();
   formAdd: FormGroup;
   matId: number;
+  color: String = '{{matiere.color}}'
 
   constructor(private fb: FormBuilder, private matService: MatiereService, private router: Router) {
     this.matId = this.matiere.id;

@@ -1,1 +1,11 @@
-<p>modify-matiere works!</p>
+<header><h3>Modifier une matière </h3></header>
+
+<form [formGroup]="formAdd" (ngSubmit)="updateMatiere()">
+  <span class="ui-float-label">
+    <input id="name" type="text" size="30" pInputText formControlName="name" name="name" style="width: 300px;" value="{{matiere.name}}"/>
+    <label for="name">Nom de la matière</label>
+  </span>
+  Choix de la couleur : <p-colorPicker formControlName="color" name="color" [(ngModel)]="color" ></p-colorPicker> <BR> <BR>
+
+</form>
+<p-button label="Supprimer" (onClick)="deleteMatiere()"></p-button>

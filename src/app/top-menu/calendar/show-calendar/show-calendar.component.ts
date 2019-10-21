@@ -13,33 +13,15 @@ import interactionPlugin from '@fullcalendar/interaction';
 })
 export class ShowCalendarComponent implements OnInit {
 
-  creneauList: Array<Creneau> = new Array<Creneau>();
-  events = [
-    {
-      "title": "All Day Event",
-      "start": "2016-01-01"
-    },
-    {
-      "title": "Long Event",
-      "start": "2016-01-07",
-      "end": "2016-01-10"
-    },
-    {
-      "title": "Repeating Event",
-      "start": "2016-01-09T16:00:00"
-    },
-    {
-      "title": "Repeating Event",
-      "start": "2016-01-16T16:00:00"
-    },
-    {
-      "title": "Conference",
-      "start": "2016-01-11",
-      "end": "2016-01-13"
-    }
-  ];
+  creList: Array<Creneau> =new Array<Creneau>();
+  e: any = [];
+
+
+
+  events: any = [ ];
 
   options = {
+    defaultView: 'timeGridWeek',
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
     defaultDate: '2019-10-01',
     header: {
@@ -49,11 +31,36 @@ export class ShowCalendarComponent implements OnInit {
     }
   };
 
-  constructor(private creneauService: CreneauService) {
-    // this.creneauService.getAllCreneaux().then(res => {this.creneauList = res;});
+  constructor(private creService: CreneauService) {
+
+
+
   }
+
+    loadevents(res:any){
+      console.log(res);
+      this.events=[];
+      for(let elem of res)
+      {
+        let event=
+          {
+            title: elem.matiere.name+ ' {' +elem.prof.lastname+ '}in'+ elem.room.name + ':' + elem.classe.name,
+            start: elem.startdate,
+            end: elem.enddate,
+            color: elem.matiere.color
+          };
+
+        this.events.push(event);
+      }
+      console.log("==>",this.events);
+    }
+
+
 
   ngOnInit(){
-
+    this.creService.getAllCreneaux().then(res => {this.loadevents(res)});
   }
+
+
+
 }

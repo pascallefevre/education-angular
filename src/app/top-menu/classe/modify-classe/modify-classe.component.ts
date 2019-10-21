@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {ClasseService} from "../../../services/classe.service";
 import {Classe} from "../../../domain/classe";
 import {Prof} from "../../../domain/prof";
+import {ProfService} from "../../../services/prof.service";
 
 @Component({
   selector: 'app-modify-classe',
@@ -16,10 +17,11 @@ export class ModifyClasseComponent implements OnInit {
   formAdd: FormGroup;
   classeId: number;
   profList: Array<Prof> = new Array<Prof>();
-  profCaract = [];
+  profCaract = this.profService.getAllProfs();
   classeList: Array<Classe> = new Array<Classe>();
+  selectedPp: string;
 
-  constructor(private fb: FormBuilder, private classeService: ClasseService, private router: Router) {
+  constructor(private fb: FormBuilder, private classeService: ClasseService, private profService: ProfService, private router: Router) {
     this.classeId = this.classe.id;
     this.classeService.getOneClasse(this.classeId).then(res => {
       this.classe = res;
@@ -29,13 +31,7 @@ export class ModifyClasseComponent implements OnInit {
       size: [this.classe.size, Validators.required],
       pp: [this.classe.pp, Validators.required],
     })
-    //this.profService.getAllProfs().then(res => {this.profList = res})
-    this.profList.push(
-      new Prof(1,'Mickey', 'Mouse', new Date()),
-      new Prof(2,'Donald', 'Duck', new Date()),
-      new Prof(3,'Pat', 'Hibulaire', new Date()),
-      new Prof(4,'Oncle', 'Picsou', new Date())
-    )
+    this.profService.getAllProfs().then(res => {this.profList = res})
   }
 
   deleteClasse(){
@@ -56,14 +52,14 @@ export class ModifyClasseComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let prof of this.profList){
+   /* for (let prof of this.profList){
       this.profCaract.push({
         id: prof.id,
         firstname: prof.firstname,
         lastname: prof.lastname,
         birthdate: prof.birthdate
       })
-    }
+    }*/
   }
 
 }

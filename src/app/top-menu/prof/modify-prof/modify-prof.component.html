@@ -1,1 +1,15 @@
-<p>modify-prof works!</p>
+<header><h3>Modifier un professeur </h3></header>
+
+<form [formGroup]="formAdd" (ngSubmit)="updateProf()">
+  <span class="ui-float-label">
+    <input id="firstname" type="text" size="30" pInputText formControlName="firstname" name="firstname" style="width: 300px;" value="{{prof.firstname}}"/>
+  </span> <BR><BR>
+  <span class="ui-float-label">
+    <input id="lastname" type="text" size="30" pInputText formControlName="lastname" name="lastname" style="width: 300px;" value="{{prof.lastname}}"/>
+  </span> <BR><BR>
+  <span class="ui-float-label">
+    Date de naissance : <p-calendar formControlName="birthdate" name="birthdate" [yearNavigator]="true" [monthNavigator]="true" yearRange="1900:2019"></p-calendar>
+  </span> <BR><BR>
+
+</form>
+<p-button label="Supprimer" (onClick)="deleteProf()"></p-button>

@@ -1,8 +1,22 @@
 <header><h3>Liste des professeurs</h3></header>
 
+<table class="table" id="table_show">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Date de naissance</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+  </tr>
+  </thead>
+  <tbody>
 <tr *ngFor="let p of profList">
-  <td>Nom : {{p.firstname}} </td>
-  <td>Prénom : {{p.lastname}} </td>
-  <td>Date de naissance : {{p.birthdate}} </td>
+  <td>{{p.firstname}} </td>
+  <td>{{p.lastname}} </td>
+  <td>{{p.birthdate}} </td>
+  <td>button modifier</td>
+  <td>button supprimer</td>
 </tr>
-
+  </tbody>
+</table>

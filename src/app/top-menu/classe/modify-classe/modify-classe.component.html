@@ -9,7 +9,7 @@
     <input id="size" type="number" size="30" pInputText formControlName="size" name="size" style="width: 300px;" value="{{classe.size}}"/>
     <!--<label for="size">Nombre d'élèves dans la classe</label>-->
 </span><BR><BR>
-  <p-dropdown [options]="profCaract" [(ngModel)]="selectedPp" optionLabel="lastname" placeholder="{{classe.pp}}"></p-dropdown><BR><BR>
+  <p-dropdown [options]="profCaract | async" value="selectedPp" optionLabel="lastname" formControlName="pp" placeholder="{{classe.pp}}"></p-dropdown><BR><BR>
   <p-button type="submit" icon="pi pi-check" iconPos="left"></p-button>
 </form><BR>
 <p-button label="Supprimer" (onClick)="deleteClasse()"></p-button>
